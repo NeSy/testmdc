@@ -1,0 +1,28 @@
+{
+  "testmdcApp": {
+    "td": {
+      "home": {
+        "title": "Tds",
+        "createLabel": "Create a new Td",
+        "createOrEditLabel": "Create or edit a Td",
+        "notFound": "No Tds found"
+      },
+      "created": "A new Td is created with identifier {{ param }}",
+      "updated": "A Td is updated with identifier {{ param }}",
+      "deleted": "A Td is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Td {{ id }}?"
+      },
+      "detail": {
+        "title": "Td"
+      },
+      "nameFR": "Name FR",
+      "nameGB": "Name GB",
+      "commentFR": "Comment FR",
+      "commentGB": "Comment GB",
+      "number": "Number",
+      "eqpt": "Eqpt",
+      "bi": "Bi"
+    }
+  }
+}

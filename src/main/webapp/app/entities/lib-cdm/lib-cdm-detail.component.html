@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="libCdm">
+            <h2><span jhiTranslate="testmdcApp.libCdm.detail.title">Lib Cdm</span> {{libCdm.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.libCdm.nameFR">Name FR</span></dt>
+                <dd>
+                    <span>{{libCdm.nameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.libCdm.nameGB">Name GB</span></dt>
+                <dd>
+                    <span>{{libCdm.nameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.libCdm.commentFR">Comment FR</span></dt>
+                <dd>
+                    <span>{{libCdm.commentFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.libCdm.commentGB">Comment GB</span></dt>
+                <dd>
+                    <span>{{libCdm.commentGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.libCdm.docNameFR">Doc Name FR</span></dt>
+                <dd>
+                    <span>{{libCdm.docNameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.libCdm.docNameGB">Doc Name GB</span></dt>
+                <dd>
+                    <span>{{libCdm.docNameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.libCdm.cdm">Cdm</span></dt>
+                <dd>
+                    <div *ngIf="libCdm.cdm">
+                        <a [routerLink]="['/cdm', libCdm.cdm?.id, 'view']">{{libCdm.cdm?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/lib-cdm', libCdm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

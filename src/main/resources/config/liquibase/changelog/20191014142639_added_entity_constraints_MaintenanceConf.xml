@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity MaintenanceConf.
+    -->
+    <changeSet id="20191014142639-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dicocdm_id"
+                                 baseTableName="maintenance_conf"
+                                 constraintName="fk_maintenance_conf_dicocdm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dico_cdm"/>
+
+        <addForeignKeyConstraint baseColumnNames="maintenance_conf_combination_id"
+                                 baseTableName="maintenance_conf"
+                                 constraintName="fk_maintenance_conf_maintenance_conf_combination_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="maintenance_conf_combination"/>
+
+    </changeSet>
+</databaseChangeLog>

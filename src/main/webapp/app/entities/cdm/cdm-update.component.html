@@ -1,0 +1,234 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cdm-heading" jhiTranslate="testmdcApp.cdm.home.createOrEditLabel">Create or edit a Cdm</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.index" for="field_index">Index</label>
+                    <input type="text" class="form-control" name="index" id="field_index"
+                           formControlName="index"/>
+                    <div *ngIf="editForm.get('index').invalid && (editForm.get('index').dirty || editForm.get('index').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('index').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('index').errors.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Index' }">
+                            This field should follow pattern for "Index".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.nameFR" for="field_nameFR">Name FR</label>
+                    <input type="text" class="form-control" name="nameFR" id="field_nameFR"
+                           formControlName="nameFR"/>
+                    <div *ngIf="editForm.get('nameFR').invalid && (editForm.get('nameFR').dirty || editForm.get('nameFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.nameGB" for="field_nameGB">Name GB</label>
+                    <input type="text" class="form-control" name="nameGB" id="field_nameGB"
+                           formControlName="nameGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.commentFR" for="field_commentFR">Comment FR</label>
+                    <input type="text" class="form-control" name="commentFR" id="field_commentFR"
+                           formControlName="commentFR"/>
+                    <div *ngIf="editForm.get('commentFR').invalid && (editForm.get('commentFR').dirty || editForm.get('commentFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commentFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.commentGB" for="field_commentGB">Comment GB</label>
+                    <input type="text" class="form-control" name="commentGB" id="field_commentGB"
+                           formControlName="commentGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.docNameFR" for="field_docNameFR">Doc Name FR</label>
+                    <input type="text" class="form-control" name="docNameFR" id="field_docNameFR"
+                           formControlName="docNameFR"/>
+                    <div *ngIf="editForm.get('docNameFR').invalid && (editForm.get('docNameFR').dirty || editForm.get('docNameFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('docNameFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.docNameGB" for="field_docNameGB">Doc Name GB</label>
+                    <input type="text" class="form-control" name="docNameGB" id="field_docNameGB"
+                           formControlName="docNameGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.busMessage" for="field_busMessage">Bus Message</label>
+                    <input type="text" class="form-control" name="busMessage" id="field_busMessage"
+                           formControlName="busMessage"/>
+                    <div *ngIf="editForm.get('busMessage').invalid && (editForm.get('busMessage').dirty || editForm.get('busMessage').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('busMessage').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.busWord" for="field_busWord">Bus Word</label>
+                    <input type="text" class="form-control" name="busWord" id="field_busWord"
+                           formControlName="busWord"/>
+                    <div *ngIf="editForm.get('busWord').invalid && (editForm.get('busWord').dirty || editForm.get('busWord').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('busWord').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.mnemonicFR" for="field_mnemonicFR">Mnemonic FR</label>
+                    <input type="text" class="form-control" name="mnemonicFR" id="field_mnemonicFR"
+                           formControlName="mnemonicFR"/>
+                    <div *ngIf="editForm.get('mnemonicFR').invalid && (editForm.get('mnemonicFR').dirty || editForm.get('mnemonicFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mnemonicFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.offset" for="field_offset">Offset</label>
+                    <input type="number" class="form-control" name="offset" id="field_offset"
+                           formControlName="offset"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.coding" for="field_coding">Coding</label>
+                    <input type="text" class="form-control" name="coding" id="field_coding"
+                           formControlName="coding"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.unitMsg" for="field_unitMsg">Unit Msg</label>
+                    <input type="text" class="form-control" name="unitMsg" id="field_unitMsg"
+                           formControlName="unitMsg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.minMsg" for="field_minMsg">Min Msg</label>
+                    <input type="text" class="form-control" name="minMsg" id="field_minMsg"
+                           formControlName="minMsg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.maxMsg" for="field_maxMsg">Max Msg</label>
+                    <input type="text" class="form-control" name="maxMsg" id="field_maxMsg"
+                           formControlName="maxMsg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.nature" for="field_nature">Nature</label>
+                    <select class="form-control" name="nature" formControlName="nature" id="field_nature">
+                        <option value="DISCRETE">{{'testmdcApp.CdmNature.DISCRETE' | translate}}</option>
+                        <option value="DIGITAL">{{'testmdcApp.CdmNature.DIGITAL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.sign" for="field_sign">Sign</label>
+                    <input type="checkbox" class="form-control" name="sign" id="field_sign"
+                           formControlName="sign"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.cadrageVTL" for="field_cadrageVTL">Cadrage VTL</label>
+                    <input type="text" class="form-control" name="cadrageVTL" id="field_cadrageVTL"
+                           formControlName="cadrageVTL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.minValueVTL" for="field_minValueVTL">Min Value VTL</label>
+                    <input type="text" class="form-control" name="minValueVTL" id="field_minValueVTL"
+                           formControlName="minValueVTL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.maxValueVTL" for="field_maxValueVTL">Max Value VTL</label>
+                    <input type="text" class="form-control" name="maxValueVTL" id="field_maxValueVTL"
+                           formControlName="maxValueVTL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.minByteVTL" for="field_minByteVTL">Min Byte VTL</label>
+                    <input type="number" class="form-control" name="minByteVTL" id="field_minByteVTL"
+                           formControlName="minByteVTL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.maxByteVTL" for="field_maxByteVTL">Max Byte VTL</label>
+                    <input type="number" class="form-control" name="maxByteVTL" id="field_maxByteVTL"
+                           formControlName="maxByteVTL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.unitVTL" for="field_unitVTL">Unit VTL</label>
+                    <input type="text" class="form-control" name="unitVTL" id="field_unitVTL"
+                           formControlName="unitVTL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.kind" for="field_kind">Kind</label>
+                    <select class="form-control" name="kind" formControlName="kind" id="field_kind">
+                        <option value="R">{{'testmdcApp.EqptKind.R' | translate}}</option>
+                        <option value="S">{{'testmdcApp.EqptKind.S' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.linear" for="field_linear">Linear</label>
+                    <input type="checkbox" class="form-control" name="linear" id="field_linear"
+                           formControlName="linear"/>
+                    <div *ngIf="editForm.get('linear').invalid && (editForm.get('linear').dirty || editForm.get('linear').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('linear').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.func" for="field_func">Func</label>
+                    <input type="number" class="form-control" name="func" id="field_func"
+                           formControlName="func"/>
+                    <div *ngIf="editForm.get('func').invalid && (editForm.get('func').dirty || editForm.get('func').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('func').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('func')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.eqpt" for="field_eqpt">Eqpt</label>
+                    <select class="form-control" id="field_eqpt" name="eqpt" formControlName="eqpt">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eqptOption.id === editForm.get('eqpt').value?.id ? editForm.get('eqpt').value : eqptOption" *ngFor="let eqptOption of eqpts; trackBy: trackEqptById">{{eqptOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.cdm.maintenanceConfiguration" for="field_maintenanceConfiguration">Maintenance Configuration</label>
+                    <select class="form-control" id="field_maintenanceConfiguration" name="maintenanceConfiguration" formControlName="maintenanceConfiguration">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="maintenanceConfOption.id === editForm.get('maintenanceConfiguration').value?.id ? editForm.get('maintenanceConfiguration').value : maintenanceConfOption" *ngFor="let maintenanceConfOption of maintenanceconfigurations; trackBy: trackMaintenanceConfById">{{maintenanceConfOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

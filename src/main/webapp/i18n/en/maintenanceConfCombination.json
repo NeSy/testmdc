@@ -1,0 +1,24 @@
+{
+  "testmdcApp": {
+    "maintenanceConfCombination": {
+      "home": {
+        "title": "Maintenance Conf Combinations",
+        "createLabel": "Create a new Maintenance Conf Combination",
+        "createOrEditLabel": "Create or edit a Maintenance Conf Combination",
+        "notFound": "No Maintenance Conf Combinations found"
+      },
+      "created": "A new Maintenance Conf Combination is created with identifier {{ param }}",
+      "updated": "A Maintenance Conf Combination is updated with identifier {{ param }}",
+      "deleted": "A Maintenance Conf Combination is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Maintenance Conf Combination {{ id }}?"
+      },
+      "detail": {
+        "title": "Maintenance Conf Combination"
+      },
+      "name": "Name",
+      "dicoCDM": "Dico CDM",
+      "maintenanceConfRef": "Maintenance Conf Ref"
+    }
+  }
+}

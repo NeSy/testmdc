@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Eqpt.
+    -->
+    <changeSet id="20191014142632-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dicocdm_id"
+                                 baseTableName="eqpt"
+                                 constraintName="fk_eqpt_dicocdm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dico_cdm"/>
+
+        <addForeignKeyConstraint baseColumnNames="point_emport_id"
+                                 baseTableName="eqpt"
+                                 constraintName="fk_eqpt_point_emport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="point_emport"/>
+
+        <addForeignKeyConstraint baseColumnNames="bus_ref_id"
+                                 baseTableName="eqpt"
+                                 constraintName="fk_eqpt_bus_ref_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bus"/>
+
+    </changeSet>
+</databaseChangeLog>

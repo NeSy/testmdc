@@ -1,0 +1,116 @@
+{
+    "name": "Eqpt",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "EqptType",
+            "fieldValues": "SA,S",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nameFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nameGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnemonicFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mnemonicGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commentFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "[0-9][0-9]"
+        },
+        {
+            "fieldName": "kind",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cdp",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "dicoCDM",
+            "otherEntityName": "dicoCDM",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "pointEmport",
+            "otherEntityName": "pointEmport",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "bus",
+            "otherEntityRelationshipName": "eqpt",
+            "relationshipName": "busRef",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cdm",
+            "otherEntityRelationshipName": "eqpt",
+            "relationshipName": "cdm"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bi",
+            "otherEntityRelationshipName": "eqpt",
+            "relationshipName": "bi"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "td",
+            "otherEntityRelationshipName": "eqpt",
+            "relationshipName": "td"
+        }
+    ],
+    "changelogDate": "20191014142632",
+    "entityTableName": "eqpt",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

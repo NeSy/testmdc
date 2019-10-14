@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.maintenanceConfCombination.home.title">Maintenance Conf Combinations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-maintenance-conf-combination" [routerLink]="['/maintenance-conf-combination/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.maintenanceConfCombination.home.createLabel">
+            Create a new Maintenance Conf Combination
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="maintenanceConfCombinations?.length === 0">
+        <span jhiTranslate="testmdcApp.maintenanceConfCombination.home.notFound">No maintenanceConfCombinations found</span>
+    </div>
+    <div class="table-responsive" *ngIf="maintenanceConfCombinations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.maintenanceConfCombination.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.maintenanceConfCombination.dicoCDM">Dico CDM</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let maintenanceConfCombination of maintenanceConfCombinations ;trackBy: trackId">
+                <td><a [routerLink]="['/maintenance-conf-combination', maintenanceConfCombination.id, 'view' ]">{{maintenanceConfCombination.id}}</a></td>
+                <td>{{maintenanceConfCombination.name}}</td>
+                <td>
+                    <div *ngIf="maintenanceConfCombination.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', maintenanceConfCombination.dicoCDM?.id, 'view' ]" >{{maintenanceConfCombination.dicoCDM?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/maintenance-conf-combination', maintenanceConfCombination.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/maintenance-conf-combination', maintenanceConfCombination.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/maintenance-conf-combination', { outlets: { popup: maintenanceConfCombination.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

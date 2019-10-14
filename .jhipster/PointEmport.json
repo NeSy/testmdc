@@ -1,0 +1,55 @@
+{
+    "name": "PointEmport",
+    "fields": [
+        {
+            "fieldName": "nameFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nameGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commentFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnemonicGB",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "dicoCDM",
+            "otherEntityName": "dicoCDM",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "eqpt",
+            "otherEntityRelationshipName": "pointEmport",
+            "relationshipName": "eqpt"
+        }
+    ],
+    "changelogDate": "20191014142631",
+    "entityTableName": "point_emport",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

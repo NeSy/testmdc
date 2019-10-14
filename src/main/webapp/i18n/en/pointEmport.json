@@ -1,0 +1,28 @@
+{
+  "testmdcApp": {
+    "pointEmport": {
+      "home": {
+        "title": "Point Emports",
+        "createLabel": "Create a new Point Emport",
+        "createOrEditLabel": "Create or edit a Point Emport",
+        "notFound": "No Point Emports found"
+      },
+      "created": "A new Point Emport is created with identifier {{ param }}",
+      "updated": "A Point Emport is updated with identifier {{ param }}",
+      "deleted": "A Point Emport is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Point Emport {{ id }}?"
+      },
+      "detail": {
+        "title": "Point Emport"
+      },
+      "nameFR": "Name FR",
+      "nameGB": "Name GB",
+      "commentFR": "Comment FR",
+      "commentGB": "Comment GB",
+      "mnemonicGB": "Mnemonic GB",
+      "dicoCDM": "Dico CDM",
+      "eqpt": "Eqpt"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "testmdcApp": {
+    "aircraftConf": {
+      "home": {
+        "title": "Aircraft Confs",
+        "createLabel": "Create a new Aircraft Conf",
+        "createOrEditLabel": "Create or edit a Aircraft Conf",
+        "notFound": "No Aircraft Confs found"
+      },
+      "created": "A new Aircraft Conf is created with identifier {{ param }}",
+      "updated": "A Aircraft Conf is updated with identifier {{ param }}",
+      "deleted": "A Aircraft Conf is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Aircraft Conf {{ id }}?"
+      },
+      "detail": {
+        "title": "Aircraft Conf"
+      },
+      "name": "Name",
+      "dicoCDM": "Dico CDM",
+      "cdm": "Cdm"
+    }
+  }
+}

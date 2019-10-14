@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.bi.home.title">Bis</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bi" [routerLink]="['/bi/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.bi.home.createLabel">
+            Create a new Bi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="bis?.length === 0">
+        <span jhiTranslate="testmdcApp.bi.home.notFound">No bis found</span>
+    </div>
+    <div class="table-responsive" *ngIf="bis?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.nameFR">Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.nameGB">Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.commentFR">Comment FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.commentGB">Comment GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.mnemonicFR">Mnemonic FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.mnemonicGB">Mnemonic GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.cdp">Cdp</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.bi.eqpt">Eqpt</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bi of bis ;trackBy: trackId">
+                <td><a [routerLink]="['/bi', bi.id, 'view' ]">{{bi.id}}</a></td>
+                <td>{{bi.nameFR}}</td>
+                <td>{{bi.nameGB}}</td>
+                <td>{{bi.commentFR}}</td>
+                <td>{{bi.commentGB}}</td>
+                <td>{{bi.mnemonicFR}}</td>
+                <td>{{bi.mnemonicGB}}</td>
+                <td>{{bi.cdp}}</td>
+                <td>
+                    <div *ngIf="bi.eqpt">
+                        <a [routerLink]="['/eqpt', bi.eqpt?.id, 'view' ]" >{{bi.eqpt?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/bi', bi.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/bi', bi.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/bi', { outlets: { popup: bi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

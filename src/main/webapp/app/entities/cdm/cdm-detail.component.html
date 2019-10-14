@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cdm">
+            <h2><span jhiTranslate="testmdcApp.cdm.detail.title">Cdm</span> {{cdm.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.cdm.index">Index</span></dt>
+                <dd>
+                    <span>{{cdm.index}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.nameFR">Name FR</span></dt>
+                <dd>
+                    <span>{{cdm.nameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.nameGB">Name GB</span></dt>
+                <dd>
+                    <span>{{cdm.nameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.commentFR">Comment FR</span></dt>
+                <dd>
+                    <span>{{cdm.commentFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.commentGB">Comment GB</span></dt>
+                <dd>
+                    <span>{{cdm.commentGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.docNameFR">Doc Name FR</span></dt>
+                <dd>
+                    <span>{{cdm.docNameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.docNameGB">Doc Name GB</span></dt>
+                <dd>
+                    <span>{{cdm.docNameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.busMessage">Bus Message</span></dt>
+                <dd>
+                    <span>{{cdm.busMessage}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.busWord">Bus Word</span></dt>
+                <dd>
+                    <span>{{cdm.busWord}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.mnemonicFR">Mnemonic FR</span></dt>
+                <dd>
+                    <span>{{cdm.mnemonicFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.offset">Offset</span></dt>
+                <dd>
+                    <span>{{cdm.offset}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.coding">Coding</span></dt>
+                <dd>
+                    <span>{{cdm.coding}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.unitMsg">Unit Msg</span></dt>
+                <dd>
+                    <span>{{cdm.unitMsg}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.minMsg">Min Msg</span></dt>
+                <dd>
+                    <span>{{cdm.minMsg}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.maxMsg">Max Msg</span></dt>
+                <dd>
+                    <span>{{cdm.maxMsg}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.nature">Nature</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'testmdcApp.CdmNature.' + cdm.nature}}">{{cdm.nature}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.sign">Sign</span></dt>
+                <dd>
+                    <span>{{cdm.sign}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.cadrageVTL">Cadrage VTL</span></dt>
+                <dd>
+                    <span>{{cdm.cadrageVTL}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.minValueVTL">Min Value VTL</span></dt>
+                <dd>
+                    <span>{{cdm.minValueVTL}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.maxValueVTL">Max Value VTL</span></dt>
+                <dd>
+                    <span>{{cdm.maxValueVTL}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.minByteVTL">Min Byte VTL</span></dt>
+                <dd>
+                    <span>{{cdm.minByteVTL}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.maxByteVTL">Max Byte VTL</span></dt>
+                <dd>
+                    <span>{{cdm.maxByteVTL}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.unitVTL">Unit VTL</span></dt>
+                <dd>
+                    <span>{{cdm.unitVTL}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.kind">Kind</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'testmdcApp.EqptKind.' + cdm.kind}}">{{cdm.kind}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.linear">Linear</span></dt>
+                <dd>
+                    <span>{{cdm.linear}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.func">Func</span></dt>
+                <dd>
+                    <span>{{cdm.func}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.eqpt">Eqpt</span></dt>
+                <dd>
+                    <div *ngIf="cdm.eqpt">
+                        <a [routerLink]="['/eqpt', cdm.eqpt?.id, 'view']">{{cdm.eqpt?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.cdm.maintenanceConfiguration">Maintenance Configuration</span></dt>
+                <dd>
+                    <div *ngIf="cdm.maintenanceConfiguration">
+                        <a [routerLink]="['/maintenance-conf', cdm.maintenanceConfiguration?.id, 'view']">{{cdm.maintenanceConfiguration?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cdm', cdm.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

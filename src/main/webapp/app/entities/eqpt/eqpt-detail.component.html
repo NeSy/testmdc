@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="eqpt">
+            <h2><span jhiTranslate="testmdcApp.eqpt.detail.title">Eqpt</span> {{eqpt.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.eqpt.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'testmdcApp.EqptType.' + eqpt.type}}">{{eqpt.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.nameFR">Name FR</span></dt>
+                <dd>
+                    <span>{{eqpt.nameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.nameGB">Name GB</span></dt>
+                <dd>
+                    <span>{{eqpt.nameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.mnemonicFR">Mnemonic FR</span></dt>
+                <dd>
+                    <span>{{eqpt.mnemonicFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.mnemonicGB">Mnemonic GB</span></dt>
+                <dd>
+                    <span>{{eqpt.mnemonicGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.commentFR">Comment FR</span></dt>
+                <dd>
+                    <span>{{eqpt.commentFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.commentGB">Comment GB</span></dt>
+                <dd>
+                    <span>{{eqpt.commentGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.address">Address</span></dt>
+                <dd>
+                    <span>{{eqpt.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.kind">Kind</span></dt>
+                <dd>
+                    <span>{{eqpt.kind}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.cdp">Cdp</span></dt>
+                <dd>
+                    <span>{{eqpt.cdp}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.dicoCDM">Dico CDM</span></dt>
+                <dd>
+                    <div *ngIf="eqpt.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', eqpt.dicoCDM?.id, 'view']">{{eqpt.dicoCDM?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.pointEmport">Point Emport</span></dt>
+                <dd>
+                    <div *ngIf="eqpt.pointEmport">
+                        <a [routerLink]="['/point-emport', eqpt.pointEmport?.id, 'view']">{{eqpt.pointEmport?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.eqpt.busRef">Bus Ref</span></dt>
+                <dd>
+                    <div *ngIf="eqpt.busRef">
+                        <a [routerLink]="['/bus', eqpt.busRef?.id, 'view']">{{eqpt.busRef?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/eqpt', eqpt.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

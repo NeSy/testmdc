@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bi-heading" jhiTranslate="testmdcApp.bi.home.createOrEditLabel">Create or edit a Bi</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.nameFR" for="field_nameFR">Name FR</label>
+                    <input type="text" class="form-control" name="nameFR" id="field_nameFR"
+                           formControlName="nameFR"/>
+                    <div *ngIf="editForm.get('nameFR').invalid && (editForm.get('nameFR').dirty || editForm.get('nameFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.nameGB" for="field_nameGB">Name GB</label>
+                    <input type="text" class="form-control" name="nameGB" id="field_nameGB"
+                           formControlName="nameGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.commentFR" for="field_commentFR">Comment FR</label>
+                    <input type="text" class="form-control" name="commentFR" id="field_commentFR"
+                           formControlName="commentFR"/>
+                    <div *ngIf="editForm.get('commentFR').invalid && (editForm.get('commentFR').dirty || editForm.get('commentFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commentFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.commentGB" for="field_commentGB">Comment GB</label>
+                    <input type="text" class="form-control" name="commentGB" id="field_commentGB"
+                           formControlName="commentGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.mnemonicFR" for="field_mnemonicFR">Mnemonic FR</label>
+                    <input type="text" class="form-control" name="mnemonicFR" id="field_mnemonicFR"
+                           formControlName="mnemonicFR"/>
+                    <div *ngIf="editForm.get('mnemonicFR').invalid && (editForm.get('mnemonicFR').dirty || editForm.get('mnemonicFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mnemonicFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.mnemonicGB" for="field_mnemonicGB">Mnemonic GB</label>
+                    <input type="text" class="form-control" name="mnemonicGB" id="field_mnemonicGB"
+                           formControlName="mnemonicGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.cdp" for="field_cdp">Cdp</label>
+                    <input type="text" class="form-control" name="cdp" id="field_cdp"
+                           formControlName="cdp"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.bi.eqpt" for="field_eqpt">Eqpt</label>
+                    <select class="form-control" id="field_eqpt" name="eqpt" formControlName="eqpt">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eqptOption.id === editForm.get('eqpt').value?.id ? editForm.get('eqpt').value : eqptOption" *ngFor="let eqptOption of eqpts; trackBy: trackEqptById">{{eqptOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

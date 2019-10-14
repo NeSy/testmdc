@@ -1,0 +1,37 @@
+{
+  "testmdcApp": {
+    "eqpt": {
+      "home": {
+        "title": "Eqpts",
+        "createLabel": "Create a new Eqpt",
+        "createOrEditLabel": "Create or edit a Eqpt",
+        "notFound": "No Eqpts found"
+      },
+      "created": "A new Eqpt is created with identifier {{ param }}",
+      "updated": "A Eqpt is updated with identifier {{ param }}",
+      "deleted": "A Eqpt is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Eqpt {{ id }}?"
+      },
+      "detail": {
+        "title": "Eqpt"
+      },
+      "type": "Type",
+      "nameFR": "Name FR",
+      "nameGB": "Name GB",
+      "mnemonicFR": "Mnemonic FR",
+      "mnemonicGB": "Mnemonic GB",
+      "commentFR": "Comment FR",
+      "commentGB": "Comment GB",
+      "address": "Address",
+      "kind": "Kind",
+      "cdp": "Cdp",
+      "dicoCDM": "Dico CDM",
+      "pointEmport": "Point Emport",
+      "busRef": "Bus Ref",
+      "cdm": "Cdm",
+      "bi": "Bi",
+      "td": "Td"
+    }
+  }
+}

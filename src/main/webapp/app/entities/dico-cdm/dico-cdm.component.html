@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.dicoCDM.home.title">Dico CDMS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-dico-cdm" [routerLink]="['/dico-cdm/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.dicoCDM.home.createLabel">
+            Create a new Dico CDM
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="dicoCDMS?.length === 0">
+        <span jhiTranslate="testmdcApp.dicoCDM.home.notFound">No dicoCDMS found</span>
+    </div>
+    <div class="table-responsive" *ngIf="dicoCDMS?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.prevDicoId">Prev Dico Id</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.imtRef">Imt Ref</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.version">Version</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.date">Date</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.releaseDate">Release Date</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.toolVersion">Tool Version</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.dicoCDM.state">State</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dicoCDM of dicoCDMS ;trackBy: trackId">
+                <td><a [routerLink]="['/dico-cdm', dicoCDM.id, 'view' ]">{{dicoCDM.id}}</a></td>
+                <td>{{dicoCDM.name}}</td>
+                <td>{{dicoCDM.prevDicoId}}</td>
+                <td>{{dicoCDM.imtRef}}</td>
+                <td>{{dicoCDM.version}}</td>
+                <td>{{dicoCDM.date}}</td>
+                <td>{{dicoCDM.releaseDate}}</td>
+                <td>{{dicoCDM.toolVersion}}</td>
+                <td>{{dicoCDM.state}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/dico-cdm', dicoCDM.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/dico-cdm', dicoCDM.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/dico-cdm', { outlets: { popup: dicoCDM.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
