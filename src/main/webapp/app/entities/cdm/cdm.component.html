@@ -1,0 +1,120 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.cdm.home.title">Cdms</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cdm" [routerLink]="['/cdm/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.cdm.home.createLabel">
+            Create a new Cdm
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="cdms?.length === 0">
+        <span jhiTranslate="testmdcApp.cdm.home.notFound">No cdms found</span>
+    </div>
+    <div class="table-responsive" *ngIf="cdms?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.index">Index</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.nameFR">Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.nameGB">Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.commentFR">Comment FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.commentGB">Comment GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.docNameFR">Doc Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.docNameGB">Doc Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.busMessage">Bus Message</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.busWord">Bus Word</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.mnemonicFR">Mnemonic FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.offset">Offset</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.coding">Coding</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.unitMsg">Unit Msg</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.minMsg">Min Msg</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.maxMsg">Max Msg</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.nature">Nature</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.sign">Sign</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.cadrageVTL">Cadrage VTL</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.minValueVTL">Min Value VTL</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.maxValueVTL">Max Value VTL</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.minByteVTL">Min Byte VTL</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.maxByteVTL">Max Byte VTL</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.unitVTL">Unit VTL</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.kind">Kind</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.linear">Linear</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.func">Func</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.eqpt">Eqpt</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.cdm.maintenanceConfiguration">Maintenance Configuration</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cdm of cdms ;trackBy: trackId">
+                <td><a [routerLink]="['/cdm', cdm.id, 'view' ]">{{cdm.id}}</a></td>
+                <td>{{cdm.index}}</td>
+                <td>{{cdm.nameFR}}</td>
+                <td>{{cdm.nameGB}}</td>
+                <td>{{cdm.commentFR}}</td>
+                <td>{{cdm.commentGB}}</td>
+                <td>{{cdm.docNameFR}}</td>
+                <td>{{cdm.docNameGB}}</td>
+                <td>{{cdm.busMessage}}</td>
+                <td>{{cdm.busWord}}</td>
+                <td>{{cdm.mnemonicFR}}</td>
+                <td>{{cdm.offset}}</td>
+                <td>{{cdm.coding}}</td>
+                <td>{{cdm.unitMsg}}</td>
+                <td>{{cdm.minMsg}}</td>
+                <td>{{cdm.maxMsg}}</td>
+                <td jhiTranslate="{{'testmdcApp.CdmNature.' + cdm.nature}}">{{cdm.nature}}</td>
+                <td>{{cdm.sign}}</td>
+                <td>{{cdm.cadrageVTL}}</td>
+                <td>{{cdm.minValueVTL}}</td>
+                <td>{{cdm.maxValueVTL}}</td>
+                <td>{{cdm.minByteVTL}}</td>
+                <td>{{cdm.maxByteVTL}}</td>
+                <td>{{cdm.unitVTL}}</td>
+                <td jhiTranslate="{{'testmdcApp.EqptKind.' + cdm.kind}}">{{cdm.kind}}</td>
+                <td>{{cdm.linear}}</td>
+                <td>{{cdm.func}}</td>
+                <td>
+                    <div *ngIf="cdm.eqpt">
+                        <a [routerLink]="['/eqpt', cdm.eqpt?.id, 'view' ]" >{{cdm.eqpt?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="cdm.maintenanceConfiguration">
+                        <a [routerLink]="['/maintenance-conf', cdm.maintenanceConfiguration?.id, 'view' ]" >{{cdm.maintenanceConfiguration?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/cdm', cdm.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cdm', cdm.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cdm', { outlets: { popup: cdm.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.eqpt.home.title">Eqpts</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-eqpt" [routerLink]="['/eqpt/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.eqpt.home.createLabel">
+            Create a new Eqpt
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="eqpts?.length === 0">
+        <span jhiTranslate="testmdcApp.eqpt.home.notFound">No eqpts found</span>
+    </div>
+    <div class="table-responsive" *ngIf="eqpts?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.type">Type</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.nameFR">Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.nameGB">Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.mnemonicFR">Mnemonic FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.mnemonicGB">Mnemonic GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.commentFR">Comment FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.commentGB">Comment GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.address">Address</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.kind">Kind</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.cdp">Cdp</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.dicoCDM">Dico CDM</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.pointEmport">Point Emport</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.eqpt.busRef">Bus Ref</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let eqpt of eqpts ;trackBy: trackId">
+                <td><a [routerLink]="['/eqpt', eqpt.id, 'view' ]">{{eqpt.id}}</a></td>
+                <td jhiTranslate="{{'testmdcApp.EqptType.' + eqpt.type}}">{{eqpt.type}}</td>
+                <td>{{eqpt.nameFR}}</td>
+                <td>{{eqpt.nameGB}}</td>
+                <td>{{eqpt.mnemonicFR}}</td>
+                <td>{{eqpt.mnemonicGB}}</td>
+                <td>{{eqpt.commentFR}}</td>
+                <td>{{eqpt.commentGB}}</td>
+                <td>{{eqpt.address}}</td>
+                <td>{{eqpt.kind}}</td>
+                <td>{{eqpt.cdp}}</td>
+                <td>
+                    <div *ngIf="eqpt.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', eqpt.dicoCDM?.id, 'view' ]" >{{eqpt.dicoCDM?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="eqpt.pointEmport">
+                        <a [routerLink]="['/point-emport', eqpt.pointEmport?.id, 'view' ]" >{{eqpt.pointEmport?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="eqpt.busRef">
+                        <a [routerLink]="['/bus', eqpt.busRef?.id, 'view' ]" >{{eqpt.busRef?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/eqpt', eqpt.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/eqpt', eqpt.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/eqpt', { outlets: { popup: eqpt.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

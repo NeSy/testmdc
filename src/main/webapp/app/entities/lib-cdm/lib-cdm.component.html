@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.libCdm.home.title">Lib Cdms</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-lib-cdm" [routerLink]="['/lib-cdm/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.libCdm.home.createLabel">
+            Create a new Lib Cdm
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="libCdms?.length === 0">
+        <span jhiTranslate="testmdcApp.libCdm.home.notFound">No libCdms found</span>
+    </div>
+    <div class="table-responsive" *ngIf="libCdms?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.nameFR">Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.nameGB">Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.commentFR">Comment FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.commentGB">Comment GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.docNameFR">Doc Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.docNameGB">Doc Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.libCdm.cdm">Cdm</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let libCdm of libCdms ;trackBy: trackId">
+                <td><a [routerLink]="['/lib-cdm', libCdm.id, 'view' ]">{{libCdm.id}}</a></td>
+                <td>{{libCdm.nameFR}}</td>
+                <td>{{libCdm.nameGB}}</td>
+                <td>{{libCdm.commentFR}}</td>
+                <td>{{libCdm.commentGB}}</td>
+                <td>{{libCdm.docNameFR}}</td>
+                <td>{{libCdm.docNameGB}}</td>
+                <td>
+                    <div *ngIf="libCdm.cdm">
+                        <a [routerLink]="['/cdm', libCdm.cdm?.id, 'view' ]" >{{libCdm.cdm?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/lib-cdm', libCdm.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/lib-cdm', libCdm.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/lib-cdm', { outlets: { popup: libCdm.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

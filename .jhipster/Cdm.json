@@ -1,0 +1,178 @@
+{
+    "name": "Cdm",
+    "fields": [
+        {
+            "fieldName": "index",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "[0-9][0-9]"
+        },
+        {
+            "fieldName": "nameFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nameGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commentFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "docNameFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "docNameGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "busMessage",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "busWord",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mnemonicFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "offset",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "coding",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitMsg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minMsg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxMsg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nature",
+            "fieldType": "CdmNature",
+            "fieldValues": "DISCRETE,DIGITAL"
+        },
+        {
+            "fieldName": "sign",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cadrageVTL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minValueVTL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxValueVTL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minByteVTL",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxByteVTL",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "unitVTL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "kind",
+            "fieldType": "EqptKind",
+            "fieldValues": "R,S"
+        },
+        {
+            "fieldName": "linear",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "func",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "eqpt",
+            "otherEntityName": "eqpt",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "maintenanceConf",
+            "otherEntityRelationshipName": "cdm",
+            "relationshipName": "maintenanceConfiguration",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "libCdm",
+            "otherEntityRelationshipName": "cdm",
+            "relationshipName": "libCdm"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "aircraftConf",
+            "otherEntityRelationshipName": "cdm",
+            "relationshipName": "aircraftConfRef"
+        }
+    ],
+    "changelogDate": "20191014142633",
+    "entityTableName": "cdm",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

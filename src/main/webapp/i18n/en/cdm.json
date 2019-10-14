@@ -1,0 +1,51 @@
+{
+  "testmdcApp": {
+    "cdm": {
+      "home": {
+        "title": "Cdms",
+        "createLabel": "Create a new Cdm",
+        "createOrEditLabel": "Create or edit a Cdm",
+        "notFound": "No Cdms found"
+      },
+      "created": "A new Cdm is created with identifier {{ param }}",
+      "updated": "A Cdm is updated with identifier {{ param }}",
+      "deleted": "A Cdm is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cdm {{ id }}?"
+      },
+      "detail": {
+        "title": "Cdm"
+      },
+      "index": "Index",
+      "nameFR": "Name FR",
+      "nameGB": "Name GB",
+      "commentFR": "Comment FR",
+      "commentGB": "Comment GB",
+      "docNameFR": "Doc Name FR",
+      "docNameGB": "Doc Name GB",
+      "busMessage": "Bus Message",
+      "busWord": "Bus Word",
+      "mnemonicFR": "Mnemonic FR",
+      "offset": "Offset",
+      "coding": "Coding",
+      "unitMsg": "Unit Msg",
+      "minMsg": "Min Msg",
+      "maxMsg": "Max Msg",
+      "nature": "Nature",
+      "sign": "Sign",
+      "cadrageVTL": "Cadrage VTL",
+      "minValueVTL": "Min Value VTL",
+      "maxValueVTL": "Max Value VTL",
+      "minByteVTL": "Min Byte VTL",
+      "maxByteVTL": "Max Byte VTL",
+      "unitVTL": "Unit VTL",
+      "kind": "Kind",
+      "linear": "Linear",
+      "func": "Func",
+      "eqpt": "Eqpt",
+      "maintenanceConfiguration": "Maintenance Configuration",
+      "libCdm": "Lib Cdm",
+      "aircraftConfRef": "Aircraft Conf Ref"
+    }
+  }
+}

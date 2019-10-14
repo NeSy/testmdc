@@ -1,0 +1,28 @@
+{
+  "testmdcApp": {
+    "libCdm": {
+      "home": {
+        "title": "Lib Cdms",
+        "createLabel": "Create a new Lib Cdm",
+        "createOrEditLabel": "Create or edit a Lib Cdm",
+        "notFound": "No Lib Cdms found"
+      },
+      "created": "A new Lib Cdm is created with identifier {{ param }}",
+      "updated": "A Lib Cdm is updated with identifier {{ param }}",
+      "deleted": "A Lib Cdm is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Lib Cdm {{ id }}?"
+      },
+      "detail": {
+        "title": "Lib Cdm"
+      },
+      "nameFR": "Name FR",
+      "nameGB": "Name GB",
+      "commentFR": "Comment FR",
+      "commentGB": "Comment GB",
+      "docNameFR": "Doc Name FR",
+      "docNameGB": "Doc Name GB",
+      "cdm": "Cdm"
+    }
+  }
+}

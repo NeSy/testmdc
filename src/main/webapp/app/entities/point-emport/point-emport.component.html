@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="testmdcApp.pointEmport.home.title">Point Emports</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-point-emport" [routerLink]="['/point-emport/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="testmdcApp.pointEmport.home.createLabel">
+            Create a new Point Emport
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="pointEmports?.length === 0">
+        <span jhiTranslate="testmdcApp.pointEmport.home.notFound">No pointEmports found</span>
+    </div>
+    <div class="table-responsive" *ngIf="pointEmports?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.pointEmport.nameFR">Name FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.pointEmport.nameGB">Name GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.pointEmport.commentFR">Comment FR</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.pointEmport.commentGB">Comment GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.pointEmport.mnemonicGB">Mnemonic GB</span></th>
+            <th scope="col" ><span jhiTranslate="testmdcApp.pointEmport.dicoCDM">Dico CDM</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pointEmport of pointEmports ;trackBy: trackId">
+                <td><a [routerLink]="['/point-emport', pointEmport.id, 'view' ]">{{pointEmport.id}}</a></td>
+                <td>{{pointEmport.nameFR}}</td>
+                <td>{{pointEmport.nameGB}}</td>
+                <td>{{pointEmport.commentFR}}</td>
+                <td>{{pointEmport.commentGB}}</td>
+                <td>{{pointEmport.mnemonicGB}}</td>
+                <td>
+                    <div *ngIf="pointEmport.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', pointEmport.dicoCDM?.id, 'view' ]" >{{pointEmport.dicoCDM?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/point-emport', pointEmport.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/point-emport', pointEmport.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/point-emport', { outlets: { popup: pointEmport.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

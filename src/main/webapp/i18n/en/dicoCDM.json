@@ -1,0 +1,34 @@
+{
+  "testmdcApp": {
+    "dicoCDM": {
+      "home": {
+        "title": "Dico CDMS",
+        "createLabel": "Create a new Dico CDM",
+        "createOrEditLabel": "Create or edit a Dico CDM",
+        "notFound": "No Dico CDMS found"
+      },
+      "created": "A new Dico CDM is created with identifier {{ param }}",
+      "updated": "A Dico CDM is updated with identifier {{ param }}",
+      "deleted": "A Dico CDM is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Dico CDM {{ id }}?"
+      },
+      "detail": {
+        "title": "Dico CDM"
+      },
+      "name": "Name",
+      "prevDicoId": "Prev Dico Id",
+      "imtRef": "Imt Ref",
+      "version": "Version",
+      "date": "Date",
+      "releaseDate": "Release Date",
+      "toolVersion": "Tool Version",
+      "state": "State",
+      "pointEmport": "Point Emport",
+      "sa": "Sa",
+      "aircraftConf": "Aircraft Conf",
+      "maintenanceConf": "Maintenance Conf",
+      "maintenaceConfCombination": "Maintenace Conf Combination"
+    }
+  }
+}

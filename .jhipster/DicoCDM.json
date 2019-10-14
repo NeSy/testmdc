@@ -1,0 +1,91 @@
+{
+    "name": "DicoCDM",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prevDicoId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imtRef",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "releaseDate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toolVersion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pointEmport",
+            "otherEntityRelationshipName": "dicoCDM",
+            "relationshipName": "pointEmport"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "eqpt",
+            "otherEntityRelationshipName": "dicoCDM",
+            "relationshipName": "sa"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "aircraftConf",
+            "otherEntityRelationshipName": "dicoCDM",
+            "relationshipName": "aircraftConf"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "maintenanceConf",
+            "otherEntityRelationshipName": "dicoCDM",
+            "relationshipName": "maintenanceConf"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "maintenanceConfCombination",
+            "otherEntityRelationshipName": "dicoCDM",
+            "relationshipName": "maintenaceConfCombination"
+        }
+    ],
+    "changelogDate": "20191014142630",
+    "entityTableName": "dico_cdm",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

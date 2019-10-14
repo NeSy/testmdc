@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="td">
+            <h2><span jhiTranslate="testmdcApp.td.detail.title">Td</span> {{td.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.td.nameFR">Name FR</span></dt>
+                <dd>
+                    <span>{{td.nameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.td.nameGB">Name GB</span></dt>
+                <dd>
+                    <span>{{td.nameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.td.commentFR">Comment FR</span></dt>
+                <dd>
+                    <span>{{td.commentFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.td.commentGB">Comment GB</span></dt>
+                <dd>
+                    <span>{{td.commentGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.td.number">Number</span></dt>
+                <dd>
+                    <span>{{td.number}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.td.eqpt">Eqpt</span></dt>
+                <dd>
+                    <div *ngIf="td.eqpt">
+                        <a [routerLink]="['/eqpt', td.eqpt?.id, 'view']">{{td.eqpt?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.td.bi">Bi</span></dt>
+                <dd>
+                    <div *ngIf="td.bi">
+                        <a [routerLink]="['/bi', td.bi?.id, 'view']">{{td.bi?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/td', td.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

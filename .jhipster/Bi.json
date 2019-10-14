@@ -1,0 +1,66 @@
+{
+    "name": "Bi",
+    "fields": [
+        {
+            "fieldName": "nameFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nameGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commentFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mnemonicFR",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mnemonicGB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cdp",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "eqpt",
+            "otherEntityName": "eqpt",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "td",
+            "otherEntityRelationshipName": "bi",
+            "relationshipName": "td"
+        }
+    ],
+    "changelogDate": "20191014142635",
+    "entityTableName": "bi",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

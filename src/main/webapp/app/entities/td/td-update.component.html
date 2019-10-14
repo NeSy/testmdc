@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-td-heading" jhiTranslate="testmdcApp.td.home.createOrEditLabel">Create or edit a Td</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.nameFR" for="field_nameFR">Name FR</label>
+                    <input type="text" class="form-control" name="nameFR" id="field_nameFR"
+                           formControlName="nameFR"/>
+                    <div *ngIf="editForm.get('nameFR').invalid && (editForm.get('nameFR').dirty || editForm.get('nameFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.nameGB" for="field_nameGB">Name GB</label>
+                    <input type="text" class="form-control" name="nameGB" id="field_nameGB"
+                           formControlName="nameGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.commentFR" for="field_commentFR">Comment FR</label>
+                    <input type="text" class="form-control" name="commentFR" id="field_commentFR"
+                           formControlName="commentFR"/>
+                    <div *ngIf="editForm.get('commentFR').invalid && (editForm.get('commentFR').dirty || editForm.get('commentFR').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commentFR').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.commentGB" for="field_commentGB">Comment GB</label>
+                    <input type="text" class="form-control" name="commentGB" id="field_commentGB"
+                           formControlName="commentGB"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.number" for="field_number">Number</label>
+                    <input type="text" class="form-control" name="number" id="field_number"
+                           formControlName="number"/>
+                    <div *ngIf="editForm.get('number').invalid && (editForm.get('number').dirty || editForm.get('number').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('number').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.eqpt" for="field_eqpt">Eqpt</label>
+                    <select class="form-control" id="field_eqpt" name="eqpt" formControlName="eqpt">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eqptOption.id === editForm.get('eqpt').value?.id ? editForm.get('eqpt').value : eqptOption" *ngFor="let eqptOption of eqpts; trackBy: trackEqptById">{{eqptOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.td.bi" for="field_bi">Bi</label>
+                    <select class="form-control" id="field_bi" name="bi" formControlName="bi">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="biOption.id === editForm.get('bi').value?.id ? editForm.get('bi').value : biOption" *ngFor="let biOption of bis; trackBy: trackBiById">{{biOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

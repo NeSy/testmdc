@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Td.
+    -->
+    <changeSet id="20191014142636-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="eqpt_id"
+                                 baseTableName="td"
+                                 constraintName="fk_td_eqpt_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="eqpt"/>
+
+        <addForeignKeyConstraint baseColumnNames="bi_id"
+                                 baseTableName="td"
+                                 constraintName="fk_td_bi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bi"/>
+
+    </changeSet>
+</databaseChangeLog>

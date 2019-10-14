@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aircraftConf">
+            <h2><span jhiTranslate="testmdcApp.aircraftConf.detail.title">Aircraft Conf</span> {{aircraftConf.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.aircraftConf.name">Name</span></dt>
+                <dd>
+                    <span>{{aircraftConf.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.aircraftConf.dicoCDM">Dico CDM</span></dt>
+                <dd>
+                    <div *ngIf="aircraftConf.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', aircraftConf.dicoCDM?.id, 'view']">{{aircraftConf.dicoCDM?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.aircraftConf.cdm">Cdm</span></dt>
+                <dd>
+                    <div *ngIf="aircraftConf.cdm">
+                        <a [routerLink]="['/cdm', aircraftConf.cdm?.id, 'view']">{{aircraftConf.cdm?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aircraft-conf', aircraftConf.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dicoCDM">
+            <h2><span jhiTranslate="testmdcApp.dicoCDM.detail.title">Dico CDM</span> {{dicoCDM.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.name">Name</span></dt>
+                <dd>
+                    <span>{{dicoCDM.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.prevDicoId">Prev Dico Id</span></dt>
+                <dd>
+                    <span>{{dicoCDM.prevDicoId}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.imtRef">Imt Ref</span></dt>
+                <dd>
+                    <span>{{dicoCDM.imtRef}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.version">Version</span></dt>
+                <dd>
+                    <span>{{dicoCDM.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.date">Date</span></dt>
+                <dd>
+                    <span>{{dicoCDM.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.releaseDate">Release Date</span></dt>
+                <dd>
+                    <span>{{dicoCDM.releaseDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.toolVersion">Tool Version</span></dt>
+                <dd>
+                    <span>{{dicoCDM.toolVersion}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.dicoCDM.state">State</span></dt>
+                <dd>
+                    <span>{{dicoCDM.state}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/dico-cdm', dicoCDM.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

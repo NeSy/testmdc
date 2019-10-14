@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-dico-cdm-heading" jhiTranslate="testmdcApp.dicoCDM.home.createOrEditLabel">Create or edit a Dico CDM</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name').invalid && (editForm.get('name').dirty || editForm.get('name').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.prevDicoId" for="field_prevDicoId">Prev Dico Id</label>
+                    <input type="text" class="form-control" name="prevDicoId" id="field_prevDicoId"
+                           formControlName="prevDicoId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.imtRef" for="field_imtRef">Imt Ref</label>
+                    <input type="text" class="form-control" name="imtRef" id="field_imtRef"
+                           formControlName="imtRef"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.version" for="field_version">Version</label>
+                    <input type="text" class="form-control" name="version" id="field_version"
+                           formControlName="version"/>
+                    <div *ngIf="editForm.get('version').invalid && (editForm.get('version').dirty || editForm.get('version').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('version').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.date" for="field_date">Date</label>
+                    <input type="text" class="form-control" name="date" id="field_date"
+                           formControlName="date"/>
+                    <div *ngIf="editForm.get('date').invalid && (editForm.get('date').dirty || editForm.get('date').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('date').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.releaseDate" for="field_releaseDate">Release Date</label>
+                    <input type="text" class="form-control" name="releaseDate" id="field_releaseDate"
+                           formControlName="releaseDate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.toolVersion" for="field_toolVersion">Tool Version</label>
+                    <input type="text" class="form-control" name="toolVersion" id="field_toolVersion"
+                           formControlName="toolVersion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="testmdcApp.dicoCDM.state" for="field_state">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                    <div *ngIf="editForm.get('state').invalid && (editForm.get('state').dirty || editForm.get('state').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('state').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

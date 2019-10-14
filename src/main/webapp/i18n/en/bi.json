@@ -1,0 +1,30 @@
+{
+  "testmdcApp": {
+    "bi": {
+      "home": {
+        "title": "Bis",
+        "createLabel": "Create a new Bi",
+        "createOrEditLabel": "Create or edit a Bi",
+        "notFound": "No Bis found"
+      },
+      "created": "A new Bi is created with identifier {{ param }}",
+      "updated": "A Bi is updated with identifier {{ param }}",
+      "deleted": "A Bi is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bi {{ id }}?"
+      },
+      "detail": {
+        "title": "Bi"
+      },
+      "nameFR": "Name FR",
+      "nameGB": "Name GB",
+      "commentFR": "Comment FR",
+      "commentGB": "Comment GB",
+      "mnemonicFR": "Mnemonic FR",
+      "mnemonicGB": "Mnemonic GB",
+      "cdp": "Cdp",
+      "eqpt": "Eqpt",
+      "td": "Td"
+    }
+  }
+}

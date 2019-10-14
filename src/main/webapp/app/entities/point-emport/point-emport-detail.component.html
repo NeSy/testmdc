@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pointEmport">
+            <h2><span jhiTranslate="testmdcApp.pointEmport.detail.title">Point Emport</span> {{pointEmport.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.pointEmport.nameFR">Name FR</span></dt>
+                <dd>
+                    <span>{{pointEmport.nameFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.pointEmport.nameGB">Name GB</span></dt>
+                <dd>
+                    <span>{{pointEmport.nameGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.pointEmport.commentFR">Comment FR</span></dt>
+                <dd>
+                    <span>{{pointEmport.commentFR}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.pointEmport.commentGB">Comment GB</span></dt>
+                <dd>
+                    <span>{{pointEmport.commentGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.pointEmport.mnemonicGB">Mnemonic GB</span></dt>
+                <dd>
+                    <span>{{pointEmport.mnemonicGB}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.pointEmport.dicoCDM">Dico CDM</span></dt>
+                <dd>
+                    <div *ngIf="pointEmport.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', pointEmport.dicoCDM?.id, 'view']">{{pointEmport.dicoCDM?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/point-emport', pointEmport.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

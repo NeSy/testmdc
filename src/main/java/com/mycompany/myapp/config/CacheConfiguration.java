@@ -42,6 +42,30 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.DicoCDM.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DicoCDM.class.getName() + ".pointEmports");
+            createCache(cm, com.mycompany.myapp.domain.DicoCDM.class.getName() + ".sas");
+            createCache(cm, com.mycompany.myapp.domain.DicoCDM.class.getName() + ".aircraftConfs");
+            createCache(cm, com.mycompany.myapp.domain.DicoCDM.class.getName() + ".maintenanceConfs");
+            createCache(cm, com.mycompany.myapp.domain.DicoCDM.class.getName() + ".maintenaceConfCombinations");
+            createCache(cm, com.mycompany.myapp.domain.PointEmport.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.PointEmport.class.getName() + ".eqpts");
+            createCache(cm, com.mycompany.myapp.domain.Eqpt.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Eqpt.class.getName() + ".cdms");
+            createCache(cm, com.mycompany.myapp.domain.Eqpt.class.getName() + ".bis");
+            createCache(cm, com.mycompany.myapp.domain.Eqpt.class.getName() + ".tds");
+            createCache(cm, com.mycompany.myapp.domain.Cdm.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Cdm.class.getName() + ".libCdms");
+            createCache(cm, com.mycompany.myapp.domain.Cdm.class.getName() + ".aircraftConfRefs");
+            createCache(cm, com.mycompany.myapp.domain.LibCdm.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Bi.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Bi.class.getName() + ".tds");
+            createCache(cm, com.mycompany.myapp.domain.Td.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Bus.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.AircraftConf.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.MaintenanceConf.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.MaintenanceConfCombination.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.MaintenanceConfCombination.class.getName() + ".maintenanceConfRefs");
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,36 @@
+{
+    "name": "MaintenanceConfCombination",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "dicoCDM",
+            "otherEntityName": "dicoCDM",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "maintenanceConf",
+            "otherEntityRelationshipName": "maintenanceConfCombination",
+            "relationshipName": "maintenanceConfRef"
+        }
+    ],
+    "changelogDate": "20191014142640",
+    "entityTableName": "maintenance_conf_combination",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

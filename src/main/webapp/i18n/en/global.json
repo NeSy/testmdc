@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "dicoCdm": "Dico CDM",
+        "pointEmport": "Point Emport",
+        "eqpt": "Eqpt",
+        "cdm": "Cdm",
+        "libCdm": "Lib Cdm",
+        "bi": "Bi",
+        "td": "Td",
+        "bus": "Bus",
+        "aircraftConf": "Aircraft Conf",
+        "maintenanceConf": "Maintenance Conf",
+        "maintenanceConfCombination": "Maintenance Conf Combination",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

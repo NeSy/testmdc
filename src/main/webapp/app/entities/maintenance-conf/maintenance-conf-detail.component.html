@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="maintenanceConf">
+            <h2><span jhiTranslate="testmdcApp.maintenanceConf.detail.title">Maintenance Conf</span> {{maintenanceConf.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="testmdcApp.maintenanceConf.name">Name</span></dt>
+                <dd>
+                    <span>{{maintenanceConf.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.maintenanceConf.dicoCDM">Dico CDM</span></dt>
+                <dd>
+                    <div *ngIf="maintenanceConf.dicoCDM">
+                        <a [routerLink]="['/dico-cdm', maintenanceConf.dicoCDM?.id, 'view']">{{maintenanceConf.dicoCDM?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="testmdcApp.maintenanceConf.maintenanceConfCombination">Maintenance Conf Combination</span></dt>
+                <dd>
+                    <div *ngIf="maintenanceConf.maintenanceConfCombination">
+                        <a [routerLink]="['/maintenance-conf-combination', maintenanceConf.maintenanceConfCombination?.id, 'view']">{{maintenanceConf.maintenanceConfCombination?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/maintenance-conf', maintenanceConf.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
