@@ -1,0 +1,148 @@
+entity DicoCDM {
+	name String required,
+    id UUID required unique,
+    prevDicoId String,
+    imtRef String,
+    version String required,
+    date String required,
+    releaseDate String,
+    toolVersion String,
+    state String required
+}
+
+entity PointEmport {
+	id UUID required unique,
+    nameFR String required,
+    nameGB String,
+    commentFR String required,
+    commentGB String,
+    mnemonicGB String
+}
+
+enum EqptKind {
+	R, S
+}
+
+enum EqptType {
+	SA, S
+}
+
+entity Eqpt {
+	id UUID required unique,
+    type EqptType required,
+    nameFR String required,
+    nameGB String,
+    mnemonicFR String required,
+    mnemonicGB String,
+    commentFR String required,
+    commentGB String,
+    address String required pattern(/[0-9][0-9]/),
+    kind String required,
+    cdp String
+}
+
+enum CdmNature {
+	DISCRETE, DIGITAL
+}
+
+entity Cdm {
+	id UUID required unique,
+	index String required pattern(/[0-9][0-9]/),
+    nameFR String required,
+    nameGB String,
+    commentFR String required,
+    commentGB String,
+    docNameFR String required,
+    docNameGB String,
+    busMessage String required,
+    busWord String required,
+    mnemonicFR String required,
+    offset Integer,
+    coding String,
+    unitMsg String,
+    minMsg String,
+    maxMsg String,
+    nature CdmNature,
+    sign Boolean,
+    cadrageVTL String,
+    minValueVTL String,
+    maxValueVTL String,
+    minByteVTL Integer,
+    maxByteVTL Integer,
+    unitVTL String,
+    kind EqptKind,
+    linear Boolean required,
+    func Integer required
+}
+
+entity LibCdm {
+	id UUID required unique,
+    nameFR String required,
+    nameGB String,
+    commentFR String required,
+    commentGB String,
+    docNameFR String required,
+    docNameGB String,
+}
+
+entity Bi {
+	id UUID required unique,
+    nameFR String required,
+    nameGB String,
+    commentFR String required,
+    commentGB String,
+    mnemonicFR String required,
+    mnemonicGB String,
+    cdp String,
+}
+
+entity Td {
+	id UUID required unique,
+    nameFR String required,
+    nameGB String,
+    commentFR String required,
+    commentGB String,
+    number String required
+}
+
+entity Bus {
+	id UUID required unique,
+    index Integer required,
+    name String required
+}
+
+entity AircraftConf {
+	id UUID required unique,
+    name String required
+}
+
+entity MaintenanceConf {
+	id UUID required unique,
+    name String required
+}
+
+entity MaintenanceConfCombination {
+	id UUID required unique,
+    name String required
+}
+
+relationship OneToMany {
+  DicoCDM{pointEmport} to PointEmport,
+  DicoCDM{sa} to Eqpt
+  DicoCDM{aircraftConf} to AircraftConf,
+  DicoCDM{maintenanceConf} to MaintenanceConf,
+  DicoCDM{maintenaceConfCombination} to MaintenanceConfCombination,
+  PointEmport{eqpt} to Eqpt,
+  Eqpt{cdm} to Cdm,
+  Eqpt{bi} to Bi,
+  Eqpt{td} to Td,
+  Bi{td} to Td,
+  Cdm{libCdm} to LibCdm,
+  Cdm{aircraftConfRef(name)} to AircraftConf,
+  MaintenanceConfCombination{maintenanceConfRef(name)} to MaintenanceConf,
+}
+
+relationship OneToOne {
+  Eqpt{busRef(name)} to Bus,
+  Cdm{maintenanceConfiguration(name)} to MaintenanceConf
+}
